@@ -1,0 +1,26 @@
+# Sovereign Watchdog Trigger Map
+
+heartbeat_failure:
+  action: restart_process
+  notify: true
+  severity: critical
+
+cpu_spike:
+  action: throttle_services
+  notify: true
+  severity: high
+
+memory_leak:
+  action: clear_cache
+  notify: false
+  severity: medium
+
+disk_full:
+  action: purge_temp
+  notify: true
+  severity: high
+
+unknown_threat:
+  action: run_self_heal
+  notify: true
+  severity: extreme
